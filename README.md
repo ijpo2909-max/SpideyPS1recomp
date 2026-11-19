@@ -22,7 +22,7 @@ The current focus is reverse-engineering the PS1 camera/rendering data flow. An 
 
 The project has reached native recompilation and runtime testing on Linux. Recent investigation has identified several camera-related routines, matrix writes, controller input paths, and a global pointer that initially appeared relevant to a camera call. Further analysis showed that the pointer is updated by a routine that alternates between two structures and then calls the PS1 ordering-table clear routine. Its exact relationship to the matrix consumer is still under investigation; it must not be mislabeled as a camera pointer.
 
-See [Technical status and investigation notes](docs/TECHNICAL_STATUS.md) for evidence, addresses, caveats, and next steps.
+See [Technical status and investigation notes](docs/TECHNICAL_STATUS.md) for evidence, addresses, caveats, and next steps. The full chronological research record is available in the [Portuguese master investigation diary](docs/DIARIO_MESTRE.md).
 
 ## Target environment used for testing
 
