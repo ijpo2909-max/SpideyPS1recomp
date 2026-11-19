@@ -66,13 +66,15 @@ The corresponding recompilation routine is `func_800612B8`:
 ```c
 V0 = 0x800A0000;
 V1 = *(GP + 0xCB4);
-if (V1 != V0 - 0x591C)
-    V0 = V0 + 0x78;
+BASE = V0 - 0x591C;          // 0x8009A6E4
+if (V1 != BASE)
+    SELECTED = BASE;
 else
-    V0 = V0 - 0x591C;
-*(GP + 0xCB4) = *(V0 + 0x70);
+    SELECTED = BASE + 0x78;  // 0x8009A75C
+*(GP + 0xCB4) = SELECTED;
+A0 = *(SELECTED + 0x70);
 A1 = 0x1000;
-ClearOTagR(...);
+ClearOTagR(A0, A1);
 ```
 
 The actual generated C# should be consulted for exact branch semantics; the arithmetic yields the two observed structure addresses:
